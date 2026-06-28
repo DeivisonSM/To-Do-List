@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,body{
+    height: 100%;
+}
+
+:root{
+    --main-color: #26A69A;
+}
+
+#main-container{
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#background{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    background-image: url(./assets/background-writing.jpg);
+    background-position: 80% 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#background::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(38,166,154);
+    background: linear-gradient(50deg, rgba(38,166,154,0.4458158263305322) 0%, rgba(49,56,56,0.5214460784313726) 100%);
+}
+
+#container-to-do-list{
+    width: 50%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+#to-do-list{
+    width: 60%;
+}
+
+#to-do-list h1{
+    display: inline-block;
+    border-bottom: 4px solid var(--main-color);
+    font-size: 1.6em;
+    color: #607d8b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#to-do-list #add-task{
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#to-do-list #add-task input[type="text"]{
+    width: calc(100% - 70px);
+    height: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: 0;
+}
+
+#to-do-list #add-task input[type="text"]:focus{
+    border: 1px solid var(--main-color);
+}
+
+#to-do-list #add-task button{
+    width: 60px;
+    height: 100%;
+    background-color: var(--main-color);
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    font-size: 2.5em;
+    color: white;
+    cursor: pointer;
+}
+
+#to-do-list #added-tasks{
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#to-do-list #added-tasks ul li{
+    margin-bottom: 10px;
+    padding: 15px 55px 15px 15px;
+    position: relative;
+    list-style-type: none;
+    background-color: rgba(220,220,220,0.8);
+    color: rgba(0,0,0,0.6);
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+#to-do-list #added-tasks ul li span{
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -55px;
+    background-color: #e74c3c;
+    background-image: url(./assets/bin-icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50% auto;
+    cursor: pointer;
+    transition: 0.4s right;
+}
+
+#to-do-list #added-tasks ul li:hover span{
+    right: 0;
+}
+
+#to-do-list #clear-info-tasks{
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#to-do-list #clear-info-tasks p{
+    font-size: 1.1em;
+    color: rgba(0,0,0,0.8);
+    padding-right: 20px;
+}
+
+#to-do-list #clear-info-tasks span#total-tasks-info{
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+#to-do-list #clear-info-tasks button{
+    width: 80px;
+    padding: 10px;
+    background-color: var(--main-color);
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 1100px){
+    
+    #main-container{
+        display: block;
+    }
+    
+    #background{
+        width: 100%;
+    }
+    
+    #container-to-do-list{
+        width: 90%;
+        min-height: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgba(255,255,255,0.9);
+    }
+
+    #to-do-list{
+        text-align: center;
+        padding: 5%;
+    }
+}
+
+@media screen and (max-width: 690px){
+    
+    #container-to-do-list{
+        width: 95%;
+    }
+    
+    #to-do-list{
+        width: 100%;
+    }
+}
